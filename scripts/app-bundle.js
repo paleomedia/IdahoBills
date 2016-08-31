@@ -50,6 +50,26 @@ define('main',["require", "exports", './environment'], function (require, export
     exports.configure = configure;
 });
 
+define('About/about',["require", "exports"], function (require, exports) {
+    "use strict";
+    var About = (function () {
+        function About() {
+        }
+        return About;
+    }());
+    exports.About = About;
+});
+
+define('BillDetails/billDetails',["require", "exports"], function (require, exports) {
+    "use strict";
+    var BillDetails = (function () {
+        function BillDetails() {
+        }
+        return BillDetails;
+    }());
+    exports.BillDetails = BillDetails;
+});
+
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -72,7 +92,7 @@ define('Home/home',["require", "exports", 'aurelia-http-client', 'aurelia-framew
         };
         Home.prototype.getBills = function () {
             var _this = this;
-            this.http.get('http://openstates.org/api/v1/bills/?state=id&apikey=bcc2a830883c4f459dbffe94b2a3e90f')
+            this.http.get('http://openstates.org/api/v1/bills/?state=id&search_window=sesssion&apikey=bcc2a830883c4f459dbffe94b2a3e90f')
                 .then(function (data) {
                 _this.bills = JSON.parse(data.response);
                 _this.bills.forEach(function (i) {
@@ -91,33 +111,6 @@ define('Home/home',["require", "exports", 'aurelia-http-client', 'aurelia-framew
         return Home;
     }());
     exports.Home = Home;
-});
-
-define('resources/index',["require", "exports"], function (require, exports) {
-    "use strict";
-    function configure(config) {
-    }
-    exports.configure = configure;
-});
-
-define('About/about',["require", "exports"], function (require, exports) {
-    "use strict";
-    var About = (function () {
-        function About() {
-        }
-        return About;
-    }());
-    exports.About = About;
-});
-
-define('BillDetails/billDetails',["require", "exports"], function (require, exports) {
-    "use strict";
-    var BillDetails = (function () {
-        function BillDetails() {
-        }
-        return BillDetails;
-    }());
-    exports.BillDetails = BillDetails;
 });
 
 define('Lawmakers/lawmakers',["require", "exports"], function (require, exports) {
@@ -140,12 +133,19 @@ define('Topics/topics',["require", "exports"], function (require, exports) {
     exports.Topics = Topics;
 });
 
-define('text!app.html', ['module'], function(module) { module.exports = "<template>\n  <require from=\"./style.css\"></require>\n  <require from=\"./nav-bar.html\"></require>\n    <nav-bar router.bind=\"router\"></nav-bar>\n    <div class=\"container content\">\n      <router-view></router-view>\n    </div>\n</template>"; });
+define('resources/index',["require", "exports"], function (require, exports) {
+    "use strict";
+    function configure(config) {
+    }
+    exports.configure = configure;
+});
+
 define('text!style.css', ['module'], function(module) { module.exports = ".content{\n    margin-top: 5%;\n}"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template>\n  <require from=\"./style.css\"></require>\n  <require from=\"./nav-bar.html\"></require>\n    <nav-bar router.bind=\"router\"></nav-bar>\n    <div class=\"container content\">\n      <router-view></router-view>\n    </div>\n</template>"; });
 define('text!nav-bar.html', ['module'], function(module) { module.exports = "<template bindable=\"router\">\n    <nav class=\"navbar navbar-inverse navbar-fixed-top\">\n        <div class=\"container\">\n            <div class=\"navbar-header\">\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\"\n                    aria-controls=\"navbar\">\n            <span class=\"sr-only\">Toggle navigation</span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n            <span class=\"icon-bar\"></span>\n          </button>\n                <a class=\"navbar-brand\" href=\"#\"> ${router.title}</a>\n            </div>\n            <div id=\"navbar\" class=\"collapse navbar-collapse\">\n                <ul class=\"nav navbar-nav\">\n                    <li repeat.for=\"row of router.navigation\" class=\"${row.isActive ? 'active' : ''}\">\n                        <a data-toggle=\"collapse\" data-target=\"#skeleton-navigation-navbar-collapse.in\" href.bind=\"row.href\">${row.title}</a>\n                    </li>\n                </ul>\n            </div>\n            <!--/.nav-collapse -->\n        </div>\n    </nav>\n</template>"; });
-define('text!Home/home.html', ['module'], function(module) { module.exports = "<template>\n    <div class=\"row\">\n        <div if.bind=\"!loaded\" style=\"text-align:center; font-size:50px;\"><i class=\"fa fa-spinner fa-spin fa-3x fa-fw\" aria-hidden=\"true\"></i></div>\n        <div if.bind=\"loaded\" class=\"col-md-4 panel\" style=\"height:300px;\" repeat.for=\"bill of bills\">\n            <div class=\"col-md-12\">${bill.id}</div>\n            <div class=\"col-md-12\">${bill.title}</div>\n            <div class=\"col-md-12\">${bill.updated_at}</div>\n\n            <input type=\"text-area\" value.bind=\"bill.comment\" />\n            <button click.delegate=\"postComment(bill, bill.comment)\">Click Me</button>\n            <ul>\n                <li repeat.for=\"comment of bill.comments\">\n                    ${comment}\n                </li>\n            </ul>\n        </div>\n    </div>\n\n</template>"; });
 define('text!About/about.html', ['module'], function(module) { module.exports = "<template>About</template>"; });
 define('text!BillDetails/billDetails.html', ['module'], function(module) { module.exports = "<template>Bill Details</template>"; });
+define('text!Home/home.html', ['module'], function(module) { module.exports = "<template>\n    <div class=\"row\">\n        <div if.bind=\"!loaded\" style=\"text-align:center; font-size:50px;\"><i class=\"fa fa-spinner fa-spin fa-3x fa-fw\" aria-hidden=\"true\"></i></div>\n        <div if.bind=\"loaded\" class=\"col-md-4 panel\" style=\"height:300px;\" repeat.for=\"bill of bills\">\n            <div class=\"col-md-12\">${bill.id}</div>\n            <div class=\"col-md-12\">${bill.title}</div>\n            <div class=\"col-md-12\">${bill.updated_at}</div>\n\n            <input type=\"text-area\" value.bind=\"bill.comment\" />\n            <button click.delegate=\"postComment(bill, bill.comment)\">Click Me</button>\n            <ul>\n                <li repeat.for=\"comment of bill.comments\">\n                    ${comment}\n                </li>\n            </ul>\n        </div>\n    </div>\n\n</template>"; });
 define('text!Lawmakers/lawmakers.html', ['module'], function(module) { module.exports = "<template>Lawmakers</template>"; });
 define('text!Topics/topics.html', ['module'], function(module) { module.exports = "<template>Topics</template>"; });
 //# sourceMappingURL=app-bundle.js.map
