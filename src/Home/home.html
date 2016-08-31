@@ -1,19 +1,153 @@
 <template>
-    <div class="row">
-        <div if.bind="!loaded" style="text-align:center; font-size:50px;"><i class="fa fa-spinner fa-spin fa-3x fa-fw" aria-hidden="true"></i></div>
-        <div if.bind="loaded" class="col-md-4 panel" style="height:300px;" repeat.for="bill of bills">
-            <div class="col-md-12">${bill.id}</div>
-            <div class="col-md-12">${bill.title}</div>
-            <div class="col-md-12">${bill.updated_at}</div>
+  <div class="row">
+    <div if.bind="!loaded" style="text-align:center; font-size:20px;"><i class="fa fa-spinner fa-spin fa-3x fa-fw" aria-hidden="true"></i></div>
 
-            <input type="text-area" value.bind="bill.comment" />
-            <button click.delegate="postComment(bill, bill.comment)">Click Me</button>
-            <ul>
-                <li repeat.for="comment of bill.comments">
-                    ${comment}
-                </li>
-            </ul>
+    <!-- Sort and filter bills -->
+    <div id="billsSort">
+      
+      <div class="col-md-5">
+        <div class="search-filter">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="basic-addon1">¿</span>
+          <input class="search form-control" type="text" placeholder="Search bill summaries" />
         </div>
-    </div>
+        <div class="input-group" aria-label="Sort and filter bills">
+          <button type="button" class="sort btn btn-default" data-sort="billsummary">Sort by name</button>
+          <button type="button" class="btn btn-default" id="filter-none">Show all</button>
+          <button type="button" class="btn btn-default" id="filter-senate">Only show Senate bills</button>
+          <button type="button" class="btn btn-default" id="filter-house">Only show House bills</button>
+        </div>
+      </div>
+      <div class="list">
+        <div if.bind="loaded" class="col-md-4 panel" style="height:300px;" repeat.for="bill of bills">
+          
+          <div class="panel panel-default">
+            <div class="panel-body">
+              
+              <div><span class="billimage"><a href="/bills/?${bill.id}">${bill.id}</a></span></div>
+              <div class="lastaction">Last Update: ${bill.updated_at}</div>
+              <div class="billsummary">${bill.title}</div>
+
+              <input type="text-area" value.bind="bill.comment" />
+              <button click.delegate="postComment(bill, bill.comment)">Click Me</button>
+                <ul>
+                  <li repeat.for="comment of bill.comments">
+                    ${comment}
+                  </li>
+                </ul>
+            </div>
+          </div>
+    
+    
+          
+          
+          
+          
+            
+                  
+                    
+
+                
+                <div class="row">
+
+                  <div class="col-md-4">
+                    <div class="detailBox">
+                      <div class="titleBox">
+                        <label>Proponents</label>
+                      </div>
+                     <div class="actionBox">
+                      <ul class="yea commentList">
+                      {% if bill.comments %}
+                        {% for comment in bill.comments %}
+                          {% if comment.comment_type == "yea" %}
+                            <li>
+                              <span class="commentText">
+                              <p>{{ comment.body }}</p>
+                              </span>
+                              <span class="commenterName">
+                                <p>{{ comment.commenter.username }}</p>
+                              </span>
+                              <span class="date sub-text">{{ comment.timestamp.strftime('%Y-%m-%d') }}
+                              </span>
+                            </li>
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                  <div class="col-md-4">
+                    <div class="detailBox">
+                      <div class="titleBox">
+                        <label>Neutral</label>
+                      </div>
+                     <div class="actionBox">
+                      <ul class="neutral commentList">
+                      {% if bill.comments %}
+                        {% for comment in bill.comments %}
+                          {% if comment.comment_type == "neutral" %}
+                              <li>
+                              <span class="commentText">
+                              <p>{{ comment.body }}</p>
+                              </span>
+                              <span class="commenterName">
+                                <p>{{ comment.commenter.username }}</p>
+                              </span>
+                              <span class="date sub-text">{{ comment.timestamp.strftime('%Y-%m-%d') }}
+                              </span>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                  <div class="col-md-4">
+                    <div class="detailBox">
+                      <div class="titleBox">
+                        <label>Opponents</label>
+                      </div>
+                     <div class="actionBox">
+                      <ul class="nay commentList">
+                      {% if bill.comments %}
+                        {% for comment in bill.comments %}
+                          {% if comment.comment_type == "nay" %}
+                              <li>
+                              <span class="commentText">
+                              <p>{{ comment.body }}</p>
+                              </span>
+                              <span class="commenterName">
+                                <p>{{ comment.commenter.username }}</p>
+                              </span>
+                              <span class="date sub-text">{{ comment.timestamp.strftime('%Y-%m-%d') }}
+                              </span>
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- close comment area -->
+              
+              <div class="form-group">
+                  <form role="form" id="comment-{{ bill.bill_id|replace(" ","") }}" class="commentForm">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="bill_num" value="{{ bill.bill_name }}" />
+                    {{ comment_form.comment(rows="4", placeholder="Write comments or testimony here, select pro, neutral or anti, and press Submit.", class="form-control") }}
+                    <div class="form-group">{{ comment_form.position(class="radio-inline", type="radio") }}
+                      <button id="submitcomment" type="submit" class="btn btn-default">Add testimony</button></div>
+                  </form>
+              </div>
+              
+              </div>
+            </div> <!-- close a bill box -->
+    
+    
 
 </template>
