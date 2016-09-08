@@ -1,3 +1,555 @@
 .content{
     margin-top: 5%;
 }
+
+/* .tops {
+	width: 100%;
+	height: 170x;
+	background-image: url("../images/topo.png");
+	background-repeat: repeat-x;
+	float: left;
+	}  */
+body {
+  background-color: #e9ebee;
+}
+.page-header {
+  margin-top:50px;
+  background-image: url("../images/topo.png");
+  width: 100%;
+  min-height: 50px;
+  border-bottom: 1px solid;
+}
+.page-header h1 {
+  margin-left: 50px;
+}
+.nav.pull-right>li>a {
+  padding: 10px 5px !important;
+}
+.modal-backdrop {
+    z-index: 1020;
+}
+#topline {
+	width: 100%;
+	height: 40px;
+	background-color: #99cccc;
+	opacity: 0.4;
+	float: left;
+	}
+div.socials {
+    margin: 0;
+    position: absolute;
+	top: 0;
+	right: 0;
+	text-align: right;
+	font-size: 1.2em;
+	padding: 1.25em .5em;
+    }
+.socials ul {
+	list-style: none;
+	}
+.socials li {
+    position: relative;
+	display: inline-block;
+	margin-right: .125em;
+	}
+li.social_tw a {
+	text-decoration: none;
+	background-image: url("../images/twittericon.png");
+	}
+#logoline {
+	width: 100%;
+	height: 45px;
+	float: left;
+	}
+		
+div#logo {
+	float: left;
+	font-family: Garamond, "Times New Roman", serif;
+	font-size: 24px;
+	}
+	
+#slogan {
+	float: left;
+	font-family: Garamond, "Times New Roman", serif;
+	font-size: 16px
+	padding: 40
+	}
+	
+body {
+	font-family: 'Source Sans Pro', Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 1.3rem;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+}
+
+#topline {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	background-color: rgba(153, 204, 204, .4);
+	float: left;
+}
+div.socials {
+	margin: 0;
+	position: absolute;
+	top: 0px;
+	right: 5px;
+}
+.socials ul {
+	list-style: none;
+}
+.socials li {
+	position: relative;
+	display: inline;
+	margin-right: .125em;
+}
+.socials li a {
+	text-decoration: none;
+}
+#logoline {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+#logo {
+	float: left;
+	letter-spacing: .15em;
+	font-family: Garamond, "Times New Roman", serif;
+	font-size: 1.5rem;
+	padding: 0px 10px 0px 0px;
+}
+#slogan {
+	float: left;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	font-size: .7rem;
+	padding: 25px 0px 0px 0px;
+}
+
+/*
+
+Styles for login
+
+*/
+
+.login_modal_footer {margin-top:5px;}
+.login_modal_header .modal-title {text-align: center;font-family:'Philosopher',sans-serif; }
+.form-group {position: relative;}
+.form-group .login-field-icon {
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 3px;
+    transition: all 0.25s ease 0s;
+    padding-top: 2%;  }
+.login-modal {
+    width:100%;
+    padding-bottom:20px;  }
+.login_modal_header, .login_modal_footer {background: #00BB64 !important;color:#fff;}
+.modal-register-btn {margin: 4% 33% 2% 33% ;width:100%;}
+.login-modal input {height:40px; box-shadow: none; border:1px solid #ddd;}
+.modal-body-left {float:left; width:50%; padding-right:4%; border-right:4px solid #ddd;}
+.modal-body-right {float:right; width:47%;}
+.login-link {padding:0 20%;}
+.modal-social-icons {padding:0 10%;}
+.facebook, .twitter, .google, .linkedin, .github {width:100%;height:40px; padding-top:2%; margin-top:2%;}
+.modal-icons {margin-left: -10px; margin-right: 20px;}
+.google, .google:hover {background-color:#dd4b39;border:2px solid #dd4b39;color:#fff;}
+.twitter, .twitter:hover { background-color: #00aced; border:2px solid #00aced;color: #fff;}
+.facebook, .facebook:hover {background-color: #3b5999; border:2px solid #3b5999;color:#fff;}
+.linkedin, .linkedin:hover {background-color: #007bb6; border: 2px solid #007bb6; color:#fff;}
+.github, .github:hover {background-color: black; border: 2px solid #fff; color:#fff;}
+#social-icons-conatainer {position: relative;}
+#center-line {position: absolute;  right: 265.7px;top: 80px;background:#ddd;  border: 4px solid #DDDDDD;border-radius: 20px;}
+.modal-login-btn {width:100%;height:40px; margin-bottom:10px;}
+/* #modal-launcher {margin: 30% 0 0 30%; } */
+
+.maincontainer {
+	clear: both;
+	width: 100%;
+}
+
+/*
+
+Dashboard styles
+
+*/
+
+.dashboard {
+	width: 20%;
+	height: 100%;
+	float: left;
+	background-color: #EFF0F2;
+	padding: 0px;
+	margin-top: 10px;
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+}
+.dashhead {
+	text-align: center;
+	color: white;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	padding: 20px 0px 10px 0px;
+}
+.dashitem {
+	color: #3F5388;
+	padding: 10px;
+	line-height: 1em;
+}
+/* form {
+	width: 100%;
+	margin: 0px;
+} */
+#main-bill-panel, h1 .panel- {
+  background: #e9eaed;
+}
+h1 > .panel-heading {
+  background: #7489B4;
+}
+.panel-success > h3.panel-title {
+  background: #DFF0A4;
+}
+/*
+input[type=submit] {
+	float: right;
+	position: relative;
+	padding: 7px 15px;
+	left: 0px;
+	border: 2px solid #207cca;
+	background-color: #207cca;
+	color: white;
+}
+ input[type=search],
+input[type=email],
+input[type=text],
+input[type=password],
+textarea {
+	width: 100%;
+	padding: 8px 15px;
+	background: rgba(239, 240, 242, 0.4);
+  border: 1px solid black;
+
+}
+div {
+//	overflow: hidden;
+	padding-right: 0em;
+}
+*/
+
+#newuser {
+	text-align: right;
+	color: #3F5388;
+	padding: 10px;
+	line-height: 1em;
+	margin: 0px 10px;
+	text-transform: uppercase;
+}
+#newuser a {
+	text-decoration: none;
+}
+#dashtop {
+	background-color: #333C45;
+}
+#login {
+	background-color: #ECC64B;
+}
+label[for="rememberme"] {
+	margin: 0px 20px;
+}
+#bills {
+	background-color: #99CCCC;
+}
+#testimony {
+	background-color: #0A9DA5;
+}
+#lawmakers {
+	background-color: #364F8A;
+}
+#topics {
+	background-color: #8CAC8C;
+}
+.billmain {
+	width: 79%;
+	height: 100%;
+	background-color: white;
+	float: left;
+	margin: 1 0 ;
+	position: relative;
+}
+/*
+
+input {
+  font: normal 12px/1.3 'helvetica neue', helvetica, arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: solid 1px #555;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  }
+  
+  */
+.btn {
+  margin: 10px 5px 10px 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: solid 1px #666;
+  display: block;
+  float: left;
+  cursor: pointer;
+  }
+.btn:hover {
+  background-color: #222222;
+  color: #ded2d2;
+  }
+/*
+.list {
+  clear: both;
+  }
+.activebills {
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px 10px;
+	height: 125px;
+	margin: 10px 0px 5px 10px;
+	background-color: #EFF0F2;
+}
+
+.activebills p {
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	font-style: italic;
+}
+*/
+#position label {
+  padding:7px;
+  font-weight: 200;
+  margin: 3px 30px;
+}
+
+#position li {
+  display: inline;
+  font: normal 12px/1.3 'helvetica neue', hevetica, arial;
+  font-size: 20px;
+}
+#position input[type=radio] {
+  border: 20px;
+  width: 24px;
+  height: 24px;
+  margin: 12px;
+}
+
+.billimage {
+	background-image: url("../images/billpage.png");
+	position: relative;
+	width: 85px;
+	height: 70px;
+	float: left;
+	margin: 0px 5px 0px 0px;
+	border: 1px solid gray;
+}
+span.billimage  {
+	font-size: 1.5em;
+	font-family: 'Source Sans Pro', Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 70px;
+	padding: 0px 5px;
+	text-align: center;
+}
+/* .lastaction {
+	padding: 0px 0px 5px 0px;
+  font-size: 2.2rem;
+} */
+.billsummary {
+	font-size: 2.2rem;
+	line-height: 2.2rem;
+	padding:10px;
+}
+.lawmaker {
+	position: relative;
+	width: 100%;
+}
+.lawmaker > div {
+	height: 250px;
+  	position: absolute;
+  	width: 250px;
+}
+.leg_img {
+	position: relative;
+	width: 100%;
+	z-index: auto;
+}
+.leg_img h2 {
+	position: absolute;
+    left: 0;
+    width: 100%;
+}
+h2 span {
+   color: white;
+   font: bold 24px/45px Helvetica, Sans-Serif;
+   letter-spacing: -1px;
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+
+/*
+
+Styles for comments
+
+*/
+/*
+.pro h3, .neutral h3, .anti h3 {
+	color: black;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	text-align: center;
+}
+.pro {
+	float: left;
+	width: 32%;
+	border-right: 1px dashed black;
+	padding-right: 5px;
+	min-height: 1px;
+	line-height: 1.2em;
+}
+.neutral {
+	float: left;
+	width: 32%;
+	border-right: 1px dashed black;
+	padding-left: 5px;
+	padding-right: 5px;
+	min-height: 1px;
+	line-height: 1.2em;
+}
+.anti {
+	float: left;
+	width: 31%;
+	padding-left: 5px;
+	min-height: 1px;
+	line-height: 1.2em;
+} */
+.detailBox {
+    border:1px solid #bbb;
+    margin:5px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+  
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    overflow:visible;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commenterName p {
+    margin:0 5px;
+    color: blue;
+}
+.commentText p {
+    margin:0;
+    clear: left;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+    margin:0 5px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+
+
+/*
+.comments {
+  border-radius: 10px;
+	width: 50%;
+	height: 100%;
+	padding: 5px 0px 5px 5px;
+}
+.commentbox input[type=radio] {
+	margin: 0px 5px 0px 0px;
+	display: inline-block;
+	width: 20px;
+	height: 25px;
+}
+.commentbox label {
+	width: auto;
+	height: auto;
+	float: left;
+	margin: 0px 10px 10px 0px;
+	font-size: 1.8em;
+	text-align: center;
+	line-height: 20px;
+	vertical-align: baseline;
+}
+.comments span {
+	color: blue;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+
+.prolabel {
+	background-size: 20px;
+	width: 20px;
+	height: 25px;
+	background-repeat: no-repeat;
+	position: relative;
+}
+.antilabel {
+	width: 20px;
+	height: 25px;
+	background-size: 20px;
+	background-repeat: no-repeat;
+	position: relative;
+}
+*/
+
+.footer {
+	width: 100%;
+	height: 100%x;
+	background-image: url("../images/topo.png");
+	background-repeat: repeat;
+	background-color: #F5FDE3;
+	clear: both;
+}
+#cc {
+	padding: 10px;
+	float: left;
+	vertical-align: top;
+	width: 40%;
+	line-height: 1rem;
+}

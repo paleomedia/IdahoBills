@@ -1,1 +1,21 @@
-<template>Bill Details</template>
+<template>Bill Details
+
+
+<div class="panel panel-default">
+            <div class="panel-body">
+              
+              <div><span class="billimage"><a href="/bills/${bill.name}">${bill.name}</a></span></div>
+              <div class="lastaction">Last Update: ${bill.updated_at}</div>
+              <div class="billsummary">${bill.title}</div>
+
+              <input type="text-area" value.bind="bill.comment" />
+              <button click.delegate="postComment(bill, bill.comment)">Click Me</button>
+                <ul>
+                  <li repeat.for="comment of bill.comments">
+                    ${comment}
+                  </li>
+                </ul>
+            </div>
+</div>
+
+</template>

@@ -19,12 +19,13 @@
         </div>
       </div>
       <div class="list">
-        <div if.bind="loaded" class="col-md-4 panel" style="height:300px;" repeat.for="bill of bills">
+        
+        <div if.bind="loaded" class="panel panel-default" style="height:300px;" repeat.for="bill of bills">
           
-          <div class="panel panel-default">
+          
             <div class="panel-body">
               
-              <div><span class="billimage"><a href="/bills/?${bill.id}">${bill.id}</a></span></div>
+              <div><span class="billimage"><a href="/bills/${bill.id}">${bill.id}</a></span></div>
               <div class="lastaction">Last Update: ${bill.updated_at}</div>
               <div class="billsummary">${bill.title}</div>
 
@@ -35,7 +36,12 @@
                     ${comment}
                   </li>
                 </ul>
-            </div>
+           
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
           </div>
     
     
@@ -45,7 +51,7 @@
           
             
                   
-                    
+      <!--
 
                 
                 <div class="row">
@@ -135,7 +141,7 @@
                 </div>
               </div> <!-- close comment area -->
               
-              <div class="form-group">
+    <!--          <div class="form-group">
                   <form role="form" id="comment-{{ bill.bill_id|replace(" ","") }}" class="commentForm">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
                     <input type="hidden" name="bill_num" value="{{ bill.bill_name }}" />
